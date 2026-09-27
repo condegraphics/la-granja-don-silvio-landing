@@ -49,12 +49,18 @@
       <a class="brand" href="#inicio" aria-label="La Granja Don Silvio, volver al inicio">
         <img src="img/logo-la-granja-don-silvio-2026-.webp" width="174" height="62" alt="La Granja Don Silvio">
       </a>
-      <div class="nav-actions">
-        <nav class="desktop-nav" aria-label="Navegación principal">
-          <a href="#minorista">Minorista</a><a href="#mayorista">Mayorista</a><a href="#ofertas">Ofertas</a><a href="#galeria">Galería</a><a href="#sucursales">Sucursales</a>
-        </nav>
-        <a class="button button-small" href="tel:+5491179012341"><i class="fa-regular fa-comment" aria-hidden="true"></i> Llamar</a>
-      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú de navegación">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <a href="#minorista">Minorista</a>
+        <a href="#mayorista">Mayorista</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#galeria">Galería</a>
+        <a href="#sucursales">Sucursales</a>
+        <a class="mobile-nav-cta button" href="tel:+5491179012341"><i class="fa-regular fa-comment" aria-hidden="true"></i> Llamar</a>
+      </nav>
+      <a class="button button-small header-cta" href="tel:+5491179012341"><i class="fa-regular fa-comment" aria-hidden="true"></i> Llamar</a>
     </div>
   </header>
 
@@ -119,5 +125,40 @@
 
   <footer class="site-footer"><div class="footer-inner"><div><img src="img/logo-granja-donsilvio.webp" width="180" height="64" alt="La Granja Don Silvio" loading="lazy"><p>Venta directa minorista y abastecimiento mayorista desde Moreno, Buenos Aires.</p></div><div class="footer-contact"><span class="eyebrow">ATENCIÓN GENERAL</span><a href="tel:+5491179012341">+54 9 11 7901-2341</a><a href="tel:+5491179012342">+54 9 11 7901-2342</a></div><div class="footer-contact"><span class="eyebrow">CANALES MAYORISTAS</span><a href="https://wa.me/5491128011111?text=Hola,%20tengo%20un%20comercio%20y%20deseo%20recibir%20lista%20mayorista%20y%20entregas">Comercios y almacenes</a><a href="https://wa.me/5491133142222?text=Hola,%20represento%20un%20local%20gastron%C3%B3mico%20y%20quiero%20abastecerme%20con%20Don%20Silvio">Gastronomía</a></div></div><div class="footer-bottom"><span>© 2026 La Granja Don Silvio</span><span>Calidad, variedad y atención directa.</span></div></footer>
   <a class="whatsapp-float" href="https://wa.me/5491179012343?text=Hola%20Don%20Silvio,%20quiero%20hacer%20una%20consulta%20minorista" aria-label="Consultar por WhatsApp minorista"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Consultar</span></a>
+  <script>
+    const siteHeader = document.querySelector('.site-header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('#main-nav');
+
+    function closeMobileMenu() {
+      siteHeader.classList.remove('menu-open');
+      document.body.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+    }
+
+    menuToggle.addEventListener('click', function () {
+      const isOpen = siteHeader.classList.toggle('menu-open');
+      document.body.classList.toggle('menu-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    });
+
+    mainNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!siteHeader.contains(event.target)) closeMobileMenu();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        const wasOpen = siteHeader.classList.contains('menu-open');
+        closeMobileMenu();
+        if (wasOpen) menuToggle.focus();
+      }
+    });
+  </script>
 </body>
 </html>
