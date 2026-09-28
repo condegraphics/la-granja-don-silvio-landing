@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 - Página no encontrada | La Granja Don Silvio</title>
+  <meta name="description" content="La página que buscas no existe. Vuelve al inicio para encontrar ofertas en carne de frigorífico.">
+  <meta name="robots" content="noindex, follow">
+  <style>
+    :root {
+      --forest: #173b2d;
+      --red: #bf3e2e;
+      --cream: #f4eee4;
+      --paper: #fbfaf7;
+      --ink: #17211c;
+      --muted: #68736c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Roboto", Arial, sans-serif;
+      line-height: 1.6;
+    }
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 32px 16px;
+      text-align: center;
+    }
+    .error-code {
+      font-size: clamp(72px, 20vw, 120px);
+      font-weight: 800;
+      color: var(--red);
+      line-height: 1;
+      margin: 0 0 16px;
+      font-family: "Merriweather Sans", Arial, sans-serif;
+    }
+    .error-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: var(--ink);
+    }
+    .error-description {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 0 32px;
+    }
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60px;
+      padding: 0 26px;
+      border-radius: 999px;
+      background: var(--red);
+      border: 1px solid var(--red);
+      color: #fff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      transition: transform .18s ease, background .18s ease;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #a63225;
+      transform: translateY(-2px);
+    }
+    .button-secondary {
+      background: transparent;
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+    .button-secondary:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+    .error-logo {
+      margin-bottom: 32px;
+    }
+    .error-logo img {
+      width: 140px;
+      height: auto;
+    }
+    @media (max-width: 699px) {
+      .error-code {
+        font-size: 64px;
+      }
+      .error-title {
+        font-size: 24px;
+      }
+      .error-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="error-logo">
+      <svg width="142" height="62" viewBox="0 0 174 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="174" height="62" fill="var(--paper)" style="display:none;"/>
+        <text x="10" y="40" font-family="Merriweather Sans, serif" font-size="32" font-weight="800" fill="var(--forest)">La Granja</text>
+      </svg>
+    </div>
+    <div class="error-code">404</div>
+    <h1 class="error-title">Página no encontrada</h1>
+    <p class="error-description">
+      La página que buscas ha sido movida, eliminada o nunca existió.
+      No te preocupes, te ayudamos a encontrar lo que necesitas.
+    </p>
+    <div class="error-actions">
+      <a href="https://lagranjadonsilvio.com/" class="button">Volver al inicio</a>
+      <a href="https://lagranjadonsilvio.com/#ofertas" class="button button-secondary">Ver ofertas</a>
+    </div>
+  </div>
+</body>
+</html>
