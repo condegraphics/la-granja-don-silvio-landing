@@ -1,0 +1,21 @@
+# Robots.txt - La Granja Don Silvio
+# Control de rastreo para buscadores
+User-agent: *
+Allow: /
+Disallow: /img/
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://condegraphics.github.io/la-granja-don-silvio-landing/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

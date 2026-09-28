@@ -1,0 +1,34 @@
+# Robots LLM - Control de acceso para modelos de IA y LLMs
+# Cumple con estándar propuesto por OpenAI, Anthropic, Google
+
+User-agent: CCBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Googlebot-Extended
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+User-agent: Gemini
+Allow: /
+
+# Limitar a paths de contenido estructurado
+User-agent: *
+Allow: /
+Disallow: /img/
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Crawl delay para evitar sobrecarga
+Crawl-delay: 5
+Request-rate: 1/5
