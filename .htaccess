@@ -63,11 +63,7 @@
   # Redireccionar /feed/* (antiguo RSS)
   RewriteRule ^feed/(.*)$ https://lagranjadonsilvio.com/sitemap.xml [L,R=301]
 
-  # Redireccionar /sitemap.xml (antiguo)
-  RewriteRule ^sitemap\.xml$ https://lagranjadonsilvio.com/sitemap.xml [L]
 
-  # Redireccionar /robots.txt (antiguo)
-  RewriteRule ^robots\.txt$ https://lagranjadonsilvio.com/robots.txt [L]
 </IfModule>
 
 # ============================================================================
