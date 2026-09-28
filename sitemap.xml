@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://condegraphics.github.io/la-granja-don-silvio-landing/</loc>
+    <loc>https://lagranjadonsilvio.com/</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://condegraphics.github.io/la-granja-don-silvio-landing/img/hero-la-granja-don-silvio.jpg</image:loc>
+      <image:loc>https://lagranjadonsilvio.com/img/hero-la-granja-don-silvio.jpg</image:loc>
       <image:title>La Granja Don Silvio - Carne Premium</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://condegraphics.github.io/la-granja-don-silvio-landing/img/01.jpg</image:loc>
+      <image:loc>https://lagranjadonsilvio.com/img/01.jpg</image:loc>
       <image:title>Ofertas en Carne Vacuna</image:title>
     </image:image>
   </url>

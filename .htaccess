@@ -171,22 +171,9 @@
 # 10. MANEJO DE ERRORES 404 PERSONALIZADO
 # ============================================================================
 ErrorDocument 404 /404.html
-ErrorDocument 403 /403.html
 
-# Redirigir rutas 404 a la página de inicio (alternativa si no existe 404.html)
-<IfModule mod_rewrite.c>
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !^/index\.html$
-  RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
-  RewriteCond %{REQUEST_URI} !^/robots\.txt$
-  RewriteCond %{REQUEST_URI} !^/schema-org\.json$
-  RewriteCond %{REQUEST_URI} !^/SEO-TECHNICAL\.md$
-  RewriteCond %{REQUEST_URI} !^/404\.html$
-  RewriteCond %{REQUEST_URI} !^/403\.html$
-  RewriteCond %{REQUEST_URI} !^/img/(.*)$
-  RewriteRule ^(.*)$ https://lagranjadonsilvio.com/ [L,R=301]
-</IfModule>
+# Las URLs inexistentes deben conservar respuesta HTTP 404 y mostrar 404.html.
+# No redirigir rutas desconocidas a la Home: evita soft-404 y pérdida de señales SEO.
 
 # ============================================================================
 # 11. CANONICAL TAG IMPLÍCITO
@@ -194,15 +181,8 @@ ErrorDocument 403 /403.html
 # El canonical se define en el HTML: <link rel="canonical" href="...">
 # Este .htaccess refuerza evitando duplicados mediante redirecciones 301
 
-# ============================================================================
-# 12. BLOQUEAR BOTS MALICIOSOS
-# ============================================================================
-<IfModule mod_rewrite.c>
-  # Bloquear User-Agents conocidos por ser maliciosos
-  RewriteCond %{HTTP_USER_AGENT} (bot|crawler|spider|scraper|curl|wget) [NC]
-  RewriteCond %{HTTP_USER_AGENT} !(Googlebot|Bingbot|Slurp|Teoma|Qwantify|DuckDuckBot|Baiduspider|Sogou|YandexBot) [NC]
-  RewriteRule ^(.*)$ - [F,L]
-</IfModule>
+# No bloquear User-Agents por nombre: el control de rastreo se gestiona en robots.txt.
+# Esto evita respuestas 403 a herramientas de auditoría y agentes declarados como permitidos.
 
 # ============================================================================
 # 13. DIRECTORIO /img - Permitir acceso a imágenes
