@@ -1,9 +1,9 @@
 # .htaccess - La Granja Don Silvio | lagranjadonsilvio.com
-# Migración de WordPress a HTML/CSS - Gestión SEO técnica profesional
-# Última actualización: 2026-09-27
+# MigraciÃ³n de WordPress a HTML/CSS - GestiÃ³n SEO tÃ©cnica profesional
+# Ãšltima actualizaciÃ³n: 2026-09-27
 
 # ============================================================================
-# 1. REESCRITURA DE MÓDULO - Habilitar mod_rewrite
+# 1. REESCRITURA DE MÃ“DULO - Habilitar mod_rewrite
 # ============================================================================
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -11,7 +11,7 @@
 </IfModule>
 
 # ============================================================================
-# 2. FORÇA HTTPS (SSL/TLS)
+# 2. FORÃ‡A HTTPS (SSL/TLS)
 # ============================================================================
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTPS} off
@@ -19,8 +19,8 @@
 </IfModule>
 
 # ============================================================================
-# 3. REDIRECCIÓN www ↔ non-www (CANONICAL - Evitar contenido duplicado)
-# Opción: Redirigir a NON-www (sin www)
+# 3. REDIRECCIÃ“N www â†” non-www (CANONICAL - Evitar contenido duplicado)
+# OpciÃ³n: Redirigir a NON-www (sin www)
 # ============================================================================
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTP_HOST} ^www\.lagranjadonsilvio\.com$ [NC]
@@ -29,7 +29,7 @@
 
 # ============================================================================
 # 4. REDIRECCIONES 301 - RUTAS ANTIGUAS DE WORDPRESS
-# Preservar SEO authority de enlaces históricos
+# Preservar SEO authority de enlaces histÃ³ricos
 # ============================================================================
 <IfModule mod_rewrite.c>
   # Redireccionar /wp-admin y /wp-login a inicio
@@ -40,7 +40,7 @@
   RewriteCond %{REQUEST_URI} ^/wp-includes
   RewriteRule ^(.*)$ https://lagranjadonsilvio.com/ [L,R=301]
 
-  # Redireccionar índex.php
+  # Redireccionar Ã­ndex.php
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^index\.php(.*)$ https://lagranjadonsilvio.com/ [L,R=301]
@@ -51,13 +51,13 @@
   # Redireccionar /author/* (antiguo archivo de autor)
   RewriteRule ^author/(.*)$ https://lagranjadonsilvio.com/ [L,R=301]
 
-  # Redireccionar /category/* (antiguo archivo de categoría)
+  # Redireccionar /category/* (antiguo archivo de categorÃ­a)
   RewriteRule ^category/(.*)$ https://lagranjadonsilvio.com/ [L,R=301]
 
   # Redireccionar /tag/* (antiguo archivo de etiqueta)
   RewriteRule ^tag/(.*)$ https://lagranjadonsilvio.com/ [L,R=301]
 
-  # Redireccionar /search/* (antiguo búsqueda)
+  # Redireccionar /search/* (antiguo bÃºsqueda)
   RewriteRule ^search/(.*)$ https://lagranjadonsilvio.com/ [L,R=301]
 
   # Redireccionar /feed/* (antiguo RSS)
@@ -67,7 +67,7 @@
 </IfModule>
 
 # ============================================================================
-# 5. TRAILING SLASHES - Normalización de URLs
+# 5. TRAILING SLASHES - NormalizaciÃ³n de URLs
 # Eliminar trailing slashes (excepto directorios)
 # ============================================================================
 <IfModule mod_rewrite.c>
@@ -96,7 +96,7 @@
 </FilesMatch>
 
 # ============================================================================
-# 7. COMPRESIÓN GZIP - Optimización de velocidad (Core Web Vitals)
+# 7. COMPRESIÃ“N GZIP - OptimizaciÃ³n de velocidad (Core Web Vitals)
 # ============================================================================
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
@@ -105,12 +105,12 @@
 </IfModule>
 
 # ============================================================================
-# 8. CACHÉ DEL NAVEGADOR - Configuración de caché para recursos estáticos
+# 8. CACHÃ‰ DEL NAVEGADOR - ConfiguraciÃ³n de cachÃ© para recursos estÃ¡ticos
 # ============================================================================
 <IfModule mod_expires.c>
   ExpiresActive On
 
-  # Imágenes
+  # ImÃ¡genes
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/gif "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
@@ -129,7 +129,7 @@
   ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType application/font-woff "access plus 1 year"
 
-  # Archivos HTML (baja caché para actualizaciones frecuentes)
+  # Archivos HTML (baja cachÃ© para actualizaciones frecuentes)
   ExpiresByType text/html "access plus 1 week"
 
   # XML y JSON
@@ -153,10 +153,10 @@
   # Content Security Policy - Fortalecer seguridad
   Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https:; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; connect-src 'self' https:;"
 
-  # Referrer Policy - Control de información en backlinks
+  # Referrer Policy - Control de informaciÃ³n en backlinks
   Header set Referrer-Policy "strict-origin-when-cross-origin"
 
-  # Permissions Policy (Permisos de características del navegador)
+  # Permissions Policy (Permisos de caracterÃ­sticas del navegador)
   Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
 
   # Permitir CORS para fuentes (Google Fonts, FontAwesome)
@@ -169,19 +169,19 @@
 ErrorDocument 404 /404.html
 
 # Las URLs inexistentes deben conservar respuesta HTTP 404 y mostrar 404.html.
-# No redirigir rutas desconocidas a la Home: evita soft-404 y pérdida de señales SEO.
+# No redirigir rutas desconocidas a la Home: evita soft-404 y pÃ©rdida de seÃ±ales SEO.
 
 # ============================================================================
-# 11. CANONICAL TAG IMPLÍCITO
+# 11. CANONICAL TAG IMPLÃCITO
 # ============================================================================
 # El canonical se define en el HTML: <link rel="canonical" href="...">
 # Este .htaccess refuerza evitando duplicados mediante redirecciones 301
 
 # No bloquear User-Agents por nombre: el control de rastreo se gestiona en robots.txt.
-# Esto evita respuestas 403 a herramientas de auditoría y agentes declarados como permitidos.
+# Esto evita respuestas 403 a herramientas de auditorÃ­a y agentes declarados como permitidos.
 
 # ============================================================================
-# 13. DIRECTORIO /img - Permitir acceso a imágenes
+# 13. DIRECTORIO /img - Permitir acceso a imÃ¡genes
 # ============================================================================
 <IfModule mod_rewrite.c>
   RewriteCond %{REQUEST_FILENAME} -f
@@ -194,22 +194,22 @@ ErrorDocument 404 /404.html
 # ============================================================================
 # 1. El .htaccess implementa redirecciones 301 que preservan SEO authority
 # 2. Force HTTPS en todos los accesos (requisito de Google)
-# 3. Normalización de www/non-www para evitar contenido duplicado
+# 3. NormalizaciÃ³n de www/non-www para evitar contenido duplicado
 # 4. Bloqueo de acceso a archivos WordPress legacy (seguridad)
-# 5. Compresión GZIP para mejorar Core Web Vitals (LCP, FID, CLS)
-# 6. Caché optimizado según tipo de contenido
+# 5. CompresiÃ³n GZIP para mejorar Core Web Vitals (LCP, FID, CLS)
+# 6. CachÃ© optimizado segÃºn tipo de contenido
 # 7. Headers de seguridad implementados (HSTS recomendado en nginx)
-# 8. Manejo 404 canaliza tráfico a la página principal
+# 8. Manejo 404 canaliza trÃ¡fico a la pÃ¡gina principal
 # 9. Bloqueo de bots maliciosos para reducir crawl waste
-# 10. Trailing slashes normalizados para evitar duplicación de contenido
+# 10. Trailing slashes normalizados para evitar duplicaciÃ³n de contenido
 
 # ============================================================================
 # COMANDOS PARA ACTIVAR EN SERVIDOR
 # ============================================================================
-# 1. Verificar que mod_rewrite está habilitado:
+# 1. Verificar que mod_rewrite estÃ¡ habilitado:
 #    a2enmod rewrite (Linux/Apache)
 #
-# 2. Verificar que .htaccess está permitido en VirtualHost:
+# 2. Verificar que .htaccess estÃ¡ permitido en VirtualHost:
 #    <Directory /var/www/lagranjadonsilvio.com>
 #      AllowOverride All
 #    </Directory>
@@ -220,5 +220,18 @@ ErrorDocument 404 /404.html
 #
 # 4. Pruebas de redirecciones:
 #    curl -I https://www.lagranjadonsilvio.com (verificar 301 a non-www)
-#    curl -I http://lagranjadonsilvio.com (verificar HTTP → HTTPS 301)
+#    curl -I http://lagranjadonsilvio.com (verificar HTTP â†’ HTTPS 301)
 #    curl -I https://lagranjadonsilvio.com/wp-admin (verificar bloqueo 301)
+
+# ============================================================================
+# HARDENING CONDE GRAPHICS - Bloquear documentos internos
+# Los .md son notas de trabajo/briefs internos, no contenido del sitio.
+# ============================================================================
+<IfModule mod_authz_core.c>
+  <FilesMatch "\.(md|markdown)$">
+    Require all denied
+  </FilesMatch>
+  <FilesMatch "^\.gitignore$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
