@@ -22,17 +22,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
+      # .htaccess no lo interpreta GitHub Pages (solo Apache/Hostinger), por eso
+      # el bloqueo de .md y .docs debe resolverse aqui: fuera del artefacto.
+      - name: Stage public site
+        run: |
+          mkdir -p _site
+          rsync -a --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.gitignore' \
+            --exclude '.htaccess' \
+            --exclude '.docs' \
+            --exclude '_site' \
+            ./ _site/
+
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
