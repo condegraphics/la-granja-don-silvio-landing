@@ -1,0 +1,112 @@
+﻿<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173b2d">
+  <meta name="description" content="Armá tu pedido mayorista de carne vacuna, pollo, cerdo y más. Elegí productos y cantidades y envialos directamente por WhatsApp a La Granja Don Silvio.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="Pedidos mayoristas | La Granja Don Silvio">
+  <meta property="og:description" content="Elegí productos, indicá cantidades y enviá tu pedido mayorista por WhatsApp.">
+  <meta property="og:image" content="img/hero-don-silvio-mayorista-2026-moreno.jpg">
+  <title>Pedidos mayoristas | La Granja Don Silvio</title>
+  <link rel="preload" as="image" href="img/hero-don-silvio-mayorista-2026-moreno.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="La Granja Don Silvio, inicio">
+        <img src="img/logo-la-granja-don-silvio-2026-white-560px.png" width="560" height="298" alt="La Granja Don Silvio">
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#catalogo">Lista de Precios</a>
+        <a href="#condiciones">Condiciones</a>
+        <a class="nav-cta" href="https://wa.me/5491128011111" target="_blank" rel="noopener noreferrer" aria-label="Ventas especiales: escribime aquí por WhatsApp">
+          <span class="nav-cta-text nav-cta-a" aria-hidden="true">Ventas especiales</span>
+          <span class="nav-cta-text nav-cta-b" aria-hidden="true">Escribime aquí</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell" id="inicio">
+    <div class="shop-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="hero-brandline">La Granja Don Silvio Venta Mayorista.</p>
+          <h1 id="hero-title">Lista de Precios Gastronómica</h1>
+          <p>Precios mayoristas para restaurantes, hoteles, catering, clínicas y carnicerías.</p>
+          <a class="button button-red" href="#catalogo">Ver Lista de Precios</a>
+        </div>
+        <img class="hero-photo" src="img/hero-don-silvio-mayorista-2026-moreno.jpg" width="840" height="560" alt="Cortes de carne vacuna en el frigorífico La Granja Don Silvio" fetchpriority="high">
+      </section>
+
+      <section class="whatsapp-contact" aria-label="Consultas por WhatsApp">
+        <a href="https://wa.me/5491128011111" target="_blank" rel="noopener">Consultas WhatsApp Ventas Especiales: 11 2801-1111</a>
+      </section>
+
+      <section class="conditions" id="condiciones" aria-label="Condiciones de compra">
+        <p><strong>Entrega sin cargo</strong><span>Desde $400.000. Consultar zonas y días.</span></p>
+        <p><strong>Pago anticipado</strong><span>Confirmá el pedido con el equipo de ventas.</span></p>
+        <p><strong>Precios finales</strong><span>IVA incluido. Sujetos a cambios sin previo aviso.</span></p>
+      </section>
+
+      <section class="catalog" id="catalogo" aria-labelledby="catalog-title">
+        <div class="catalog-heading">
+          <h2 id="catalog-title">Hacé tu pedido online</h2>
+          <p>Indicá la cantidad en kilos o cajones y prepará tu pedido.</p>
+        </div>
+        <nav class="category-nav" id="category-nav" aria-label="Categorías de la lista de precios"></nav>
+        <div class="product-groups" id="product-groups" aria-live="polite">
+          <noscript>
+            <p>Activá JavaScript para ver la lista de precios y preparar tu pedido.</p>
+          </noscript>
+        </div>
+      </section>
+    </div>
+
+    <aside class="order-panel" id="pedido" aria-labelledby="order-title" data-expanded="false">
+      <div class="order-heading">
+        <div>
+          <h2 id="order-title">Tu pedido</h2>
+          <p id="order-count" aria-live="polite">Todavía no agregaste productos</p>
+        </div>
+        <button class="cart-toggle" id="cart-toggle" type="button" aria-expanded="false" aria-controls="cart-body">Revisar pedido</button>
+      </div>
+      <div class="cart-body" id="cart-body">
+        <p class="cart-empty" id="cart-empty">Elegí productos de la lista de precios para empezar.</p>
+        <ul class="cart-items" id="cart-items" aria-label="Productos seleccionados"></ul>
+        <div class="cart-fields" hidden>
+          <label for="customer-name">Nombre y negocio</label>
+          <input id="customer-name" type="text" autocomplete="organization" placeholder="Ej.: Ana, Restaurante del Centro">
+          <label for="customer-phone">Teléfono</label>
+          <input id="customer-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ej.: 11 2345 6789">
+          <label for="delivery-area">Zona de entrega</label>
+          <input id="delivery-area" type="text" autocomplete="address-level2" placeholder="Localidad o barrio">
+          <fieldset class="region-choice">
+            <legend>Región de entrega</legend>
+            <label><input type="radio" name="delivery-region" value="CABA (Capital Federal)"><span>CABA</span></label>
+            <label><input type="radio" name="delivery-region" value="GBA (Gran Buenos Aires)"><span>GBA</span></label>
+          </fieldset>
+        </div>
+        <div class="cart-total">
+          <span>Total estimado</span>
+          <strong id="cart-total" aria-live="polite">A confirmar</strong>
+        </div>
+        <p class="cart-note" id="cart-note">Los precios, el stock y la entrega se confirman al recibir el pedido.</p>
+        <button class="button button-red send-order" id="send-order" type="button" disabled>Enviar pedido por WhatsApp</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="img/logo-la-granja-don-silvio-2026-white-560px.png" width="560" height="298" alt="La Granja Don Silvio" loading="lazy">
+      <p>Precios gastronómicos mayoristas. Lista sujeta a variaciones sin previo aviso. Pago anticipado.</p>
+    </div>
+  </footer>
+</body>
+</html>
