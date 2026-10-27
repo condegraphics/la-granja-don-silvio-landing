@@ -15,4 +15,14 @@
       <image:title>Ofertas en Carne Vacuna</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://lagranjadonsilvio.com/mayorista/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lagranjadonsilvio.com/mayorista/img/hero-don-silvio-mayorista-2026-moreno.jpg</image:loc>
+      <image:title>Lista de precios mayorista La Granja Don Silvio</image:title>
+    </image:image>
+  </url>
 </urlset>

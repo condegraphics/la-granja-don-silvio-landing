@@ -235,3 +235,17 @@ ErrorDocument 404 /404.html
     Require all denied
   </FilesMatch>
 </IfModule>
+
+# ============================================================================
+# HARDENING CONDE GRAPHICS - Politica de cache para HTML
+# Ofertas y precios mayoristas cambian seguido: el HTML no debe cachearse
+# una semana (la seccion 8 lo hacia). Sobrescribe solo text/html.
+# ============================================================================
+<IfModule mod_expires.c>
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

@@ -67,7 +67,7 @@ jobs:
             'User-agent: PerplexityBot' 'Disallow: /' \
             'User-agent: Google-Extended' 'Disallow: /' \
             'User-agent: CCBot' 'Disallow: /' > _site/robots.txt
-          for f in _site/*.html; do
+          for f in $(find _site -name '*.html'); do
             perl -0pi -e '
               s{<meta\s+name="robots"\s+content="[^"]*"[^>]*>}{<meta name="robots" content="noindex, nofollow">}i
               or s{<meta\s+content="[^"]*"\s+name="robots"[^>]*>}{<meta name="robots" content="noindex, nofollow">}i
