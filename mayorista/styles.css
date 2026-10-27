@@ -759,6 +759,27 @@ h2 {
   text-align: right;
 }
 
+.footer-bottom {
+  width: min(var(--content-width), 100%);
+  margin: 36px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid #405146;
+}
+
+.footer-bottom a {
+  color: #aab8ad;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 1050px) {
   .page-shell {
     grid-template-columns: minmax(0, 1fr) 320px;
